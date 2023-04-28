@@ -1,0 +1,34 @@
+{
+    "users" : [
+        {   
+            "id" : 1 ,
+            "name" : "Shiv Raj" , 
+            "age" : 23 , 
+            "votingStatus" : true
+        },
+        {   
+            "id" : 2 ,
+            "name" : "Shivam Singh" , 
+            "age" : 21 , 
+            "votingStatus" : true
+        },
+        {   
+            "id" : 3 ,
+            "name" : "Raj Kumar" , 
+            "age" : 12 , 
+            "votingStatus" : true
+        },
+        {   
+            "id" : 4 ,
+            "name" : "Atul Meena" , 
+            "age" : 14 , 
+            "votingStatus" : false
+        },
+        {   
+            "id" : 5 ,
+            "name" : "Deepak Singh" , 
+            "age" : 22 , 
+            "votingStatus" : true
+        }
+    ]
+}
