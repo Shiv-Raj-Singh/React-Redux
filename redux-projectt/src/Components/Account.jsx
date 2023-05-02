@@ -1,18 +1,20 @@
-import { useContext } from "react";
-import { myContest } from "../App";
 
+import { useDispatch , useSelector } from "react-redux";
+import { decrement, increment, incrementByAmount } from "../Actions";
+import { useState } from "react";
 
-const Account = () => {
-
-    const {dispatch, count} = useContext(myContest)
-
+const Account = ({store}) => {
+    const [value , setValue] = useState(0)
+    const count = useSelector((state)=> state.account.count)
+    const dispatch = useDispatch()    
+    console.log(count   , 'is times count')  ;
     return (
         <>
         
         <h2>this is Account Components and Current count is {count} </h2>
 
         
-      <button  onClick={()=>dispatch({type :"INCREMENT"})} >
+      <button  onClick={()=>  dispatch(increment())} >
           increase
       </button> <br />
       
@@ -22,11 +24,17 @@ const Account = () => {
           Count is  <h2 style={{display : "inline"  , color : "white" }}   >  :       {count} </h2>
       </h5>
 
-      <button onClick={()=>dispatch({type : 'DECREMENT'})} >
+      <button onClick={()=>  dispatch(decrement())} >
           Decrease
+      </button> <br />
+
+      <input type="number" placeholder="enter amount" onChange={(e)=>setValue(e.target.value)} style={{
+        background : 'white' , color : 'black' , margin : "1.5%" , height : '3vh'
+      }} /> <br />
+      <button onClick={()=>  dispatch(incrementByAmount(value))} >
+          Decrease By Amount
       </button>
-
-
+      
         </>
     );
 }

@@ -1,30 +1,24 @@
 import { createContext, useReducer, useState } from 'react'
 import './App.css'
+import Reducer from './Reducers/AccountReducer';
 import Account from './Components/Account'
+import { useSelector } from 'react-redux';
 
 export const myContest = createContext(null)
 
-const reducer = (state , action)=>{
-    switch(action.type){
-      case 'INCREMENT':
-        return state+1
-      case 'DECREMENT' :
-        return state - 1
-      default :
-        return state
-    } 
-}
 
-function App() {
-  const [count, dispatch] = useReducer(reducer , 0)
+function App({store}) {
+  
+  const count = useSelector((state)=> state.account.count)
 
   return (
-    <myContest.Provider value={{dispatch , count}} >
+    <myContest.Provider value={store} >
     <div className="App">
       <h4>this is my redux app</h4>
-      <h1>{count}</h1>
-      {/* <Account  count={count} dispatch={dispatch} /> */}
+      <h2> {count} </h2>
+
       <Account/>
+
     </div>
     </myContest.Provider>
       
