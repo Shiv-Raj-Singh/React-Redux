@@ -1,5 +1,8 @@
-import { useReducer, useState } from 'react'
+import { createContext, useReducer, useState } from 'react'
 import './App.css'
+import Account from './Components/Account'
+
+export const myContest = createContext(null)
 
 const reducer = (state , action)=>{
     switch(action.type){
@@ -16,26 +19,15 @@ function App() {
   const [count, dispatch] = useReducer(reducer , 0)
 
   return (
+    <myContest.Provider value={{dispatch , count}} >
     <div className="App">
-
       <h4>this is my redux app</h4>
-
-      <button  onClick={()=>dispatch({type :"INCREMENT"})} >
-          increase
-      </button> <br />
-      
-      <h5 style={{
-        color:'gold' , 
-      }} >
-          Count is  <h2 style={{display : "inline"  , color : "white" }}   >  :       {count} </h2>
-      </h5>
-
-      <button onClick={()=>dispatch({type : 'DECREMENT'})} >
-          Decrease
-      </button>
-
-
+      <h1>{count}</h1>
+      {/* <Account  count={count} dispatch={dispatch} /> */}
+      <Account/>
     </div>
+    </myContest.Provider>
+      
   )
 }
 
