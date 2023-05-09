@@ -7,11 +7,14 @@ import './index.css'
 // Set Up Redux 
 import {createStore , applyMiddleware , combineReducers} from 'redux'
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+
 import {Provider} from 'react-redux';
 
 
 import Reducer from './Reducers/AccountReducer'
-const store = createStore(combineReducers({account : Reducer}) , applyMiddleware(logger))
+import UserReducer from './Reducers/UserReducer'
+const store = createStore(combineReducers({account : Reducer, user : UserReducer}) , applyMiddleware( thunk))
 
 
 // const store = createStore(Reducer)

@@ -1,6 +1,7 @@
 import { dec , inc , incByAmt } from "../Actions"
 
 
+
 export default function Reducer(state={count:0} , action){
     switch(action.type){
       case inc:

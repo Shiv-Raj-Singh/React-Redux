@@ -3,6 +3,9 @@ import './App.css'
 import Reducer from './Reducers/AccountReducer';
 import Account from './Components/Account'
 import { useSelector } from 'react-redux';
+import User from './Components/User';
+
+
 
 export const myContest = createContext(null)
 
@@ -18,6 +21,7 @@ function App({store}) {
       <h2> {count} </h2>
 
       <Account/>
+      <User/>
 
     </div>
     </myContest.Provider>
