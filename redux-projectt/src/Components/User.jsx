@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './user.css'
+
+// Using Redux Actions
 import { onRegister, onUpdate } from '../Actions';
+import { onChangeField , onLogin } from '../Slices/userSlice';
+
 
 
 const User = () => {
@@ -9,7 +13,9 @@ const User = () => {
     const user = useSelector(s=>s.user)
 
     const onHandleChange = (e)=>{
-        dispatch(onUpdate(e.target.name , e.target.value))
+        
+        // dispatch(onUpdate(e.target.name , e.target.value))
+        dispatch(onChangeField({field : e.target.name , value : e.target.value}))
     }
     const onSubmitForm = (e)=>{    
         e.preventDefault()

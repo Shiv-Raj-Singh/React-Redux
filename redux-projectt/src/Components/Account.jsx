@@ -1,13 +1,21 @@
-
+//  React - Redux Hooks to Manage get State and Dispatch Actions 
 import { useDispatch , useSelector } from "react-redux";
-import { decrement, increment, incrementByAmount } from "../Actions";
+
+// Using Simple Redux Action Creators Functions 
+// import { decrement, increment, incrementByAmount } from "../Actions";
+
+// Using Slice Action Creators Functions 
+import { increment , decrement , incByAmt } from "../Slices/AccountSlice";
+
+// react Hooks 
 import { useState } from "react";
 
 const Account = ({store}) => {
     const [value , setValue] = useState(0)
-    const count = useSelector((state)=> state.account.count)
+    const count = useSelector((state)=> state.counter.count)
     const dispatch = useDispatch()    
     console.log(count   , 'is times count')  ;
+
     return (
         <>
         
@@ -31,7 +39,7 @@ const Account = ({store}) => {
       <input type="number" placeholder="enter amount" onChange={(e)=>setValue(e.target.value)} style={{
         background : 'white' , color : 'black' , margin : "1.5%" , height : '3vh'
       }} /> <br />
-      <button onClick={()=>  dispatch(incrementByAmount(value))} >
+      <button onClick={()=>  dispatch(incByAmt(value))} >
           Decrease By Amount
       </button>
       
